@@ -28,5 +28,5 @@ class TextStyles {
 }
 
 extension TextStylesExtention on BuildContext {
-  TextStyles get colors => TextStyles.instance;
+  TextStyles get textStyles => TextStyles.instance;
 }
