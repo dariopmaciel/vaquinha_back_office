@@ -18,34 +18,47 @@ class _HomePageState extends State<HomePage> with Loader, Messages {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home Page')),
-      floatingActionButton: FloatingActionButton(onPressed: () async {
-        showLoader();
-        await Future.delayed(Duration(seconds: 2));
-        hideLoader();
+      // appBar: AppBar(title: const Text('Home Page')),
+      // floatingActionButton: FloatingActionButton(onPressed: () async {
+      //   showLoader();
+      //   await Future.delayed(Duration(seconds: 2));
+      //   hideLoader();
 
-        showError("Algum erro");
-        showInfo("Alguma info");
-        showSucess("Algum Sucesso");
-        showWarning("Algum aviso");
-      }),
+      // showError("Algum erro");
+      // showInfo("Alguma info");
+      // showSucess("Algum Sucesso");
+      // showWarning("Algum aviso");
+      // }),
       body: Container(
-        // color: Colors.red,
-        color: context.colors.primary,
-        width: context.percentWidget(.5),
-        height: context.percentWidget(.5),
-        child: Text("Texto Extra BOLD", style: context.textStyles.textTitle),
+        child: Container(
+          color: context.colors.secondary,
+          // width: context.percentWidget(.5),
+          // height: context.percentWidget(.5),
+          // child: Text("Texto Extra BOLD", style: context.textStyles.textTitle),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Form(
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  child: TextFormField(
+                    decoration: InputDecoration(label: Text("Login")),
+                    validator: (String) => 'Erro',
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 200,
+                height: 50,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text("Botão"),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
-      // Center(
-      //   child: Column(
-      //     mainAxisAlignment: MainAxisAlignment.center,
-      //     children: [
-      //       Text(Env.instance.get('backend_base_url')),
-      //       Text(context.screenWidget.toString()),
-
-      //     ],
-      //   ),
-      // ),
     );
   }
 }
