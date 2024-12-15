@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> with Loader, Messages {
         color: context.colors.primary,
         width: context.percentWidget(.5),
         height: context.percentWidget(.5),
-        child: Text("Texto Extra BOLD", style: context.textStyles.textBold),
+        child: Text("Texto Extra BOLD", style: context.textStyles.textTitle),
       ),
       // Center(
       //   child: Column(
