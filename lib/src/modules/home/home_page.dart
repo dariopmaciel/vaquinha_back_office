@@ -4,6 +4,7 @@ import '../../core/env/env.dart';
 import '../../core/ui/helper/loader.dart';
 import '../../core/ui/helper/messages.dart';
 import '../../core/ui/helper/size_extension.dart';
+import '../../core/ui/styles/colors_app.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -28,7 +29,8 @@ class _HomePageState extends State<HomePage> with Loader, Messages {
         showWarning("Algum aviso");
       }),
       body: Container(
-        color: Colors.red,
+        // color: Colors.red,
+        color: context.colors.primary,
         width: context.percentWidget(.5),
         height: context.percentWidget(.5),
       ),
