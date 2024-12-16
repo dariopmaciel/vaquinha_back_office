@@ -50,8 +50,9 @@ class LoginPage extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.all(30),
               child: Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text('login'),
+                  Text('Logo'),
                   Text('login'),
                   Text('TextformFiel'),
                   Text('TextformFiel'),
