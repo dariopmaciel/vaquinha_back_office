@@ -8,15 +8,16 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Modular.setInitialRoute('/login');
+    
+
     return MaterialApp.router(
       title: 'Application Name',
-      // theme: ThemeData(
-      //   primaryColor: Colors.blue,
-      //   useMaterial3: false,
-      // ),
+      // theme: ThemeData(primaryColor: Colors.blue,useMaterial3: false),
       theme: ThemeConfig.theme,
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
+      
     );
   }
 }
