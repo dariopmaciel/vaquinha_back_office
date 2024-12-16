@@ -9,8 +9,8 @@ class AppModule extends Module {
     //!GAMBIARRA 
     //!MAGAIVERISMO!!!!
     //!! REARRANJO
-    r.child('/', child: (_)=>HomePage());
     r.redirect('/', to: '/login');
+    r.child('/', child: (_)=>HomePage());
     r.module('/login', module: LoginModule());
   }
 }
