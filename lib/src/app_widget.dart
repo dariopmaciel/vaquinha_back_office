@@ -8,7 +8,9 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Modular.setInitialRoute('/login');
+    //?Não está funcionando o comando para outro caminho fora o '/'
+    //*usado '/' por conveniencia técnica, correto seria usar /login e '/' ser o splashPage
+    Modular.setInitialRoute('/');
     
 
     return MaterialApp.router(

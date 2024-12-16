@@ -6,11 +6,11 @@ import 'modules/login/login_module.dart';
 class AppModule extends Module {
   @override
   void routes(r) {
-    //!GAMBIARRA 
+    //!GAMBIARRA
     //!MAGAIVERISMO!!!!
     //!! REARRANJO
-    r.redirect('/', to: '/login');
-    r.child('/', child: (_)=>HomePage());
-    r.module('/login', module: LoginModule());
+    //?Não está funcionando o comando para outro caminho fora o '/'
+    r.module('/', module: LoginModule());
+    // r.child('/', child: (_) => HomePage());
   }
 }
