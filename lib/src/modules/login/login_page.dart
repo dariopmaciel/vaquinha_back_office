@@ -13,7 +13,14 @@ class LoginPage extends StatelessWidget {
       body: Stack(
         alignment: Alignment.topCenter,
         children: [
-          Container(decoration: ,),
+          Container(
+            height: context.,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/lanche.png'),
+              ),
+            ),
+          ),
         ],
       ),
     );
