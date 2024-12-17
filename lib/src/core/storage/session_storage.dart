@@ -8,14 +8,12 @@ class SessionStorage extends Storage {
   String getData(String key) {
     return window.sessionStorage[key] ?? '';
   }
+  //ou assim
+  // String getData(String key) => window.sessionStorage[key] ?? '';
 
   @override
-  void setData(String key, String valor) {
-    // TODO: implement setData
-  }
+  void setData(String key, String valor) => window.sessionStorage[key] = valor;
 
   @override
-  void clean() {
-    // TODO: implement clean
-  }
+  void clean() => window.sessionStorage.clear();
 }
