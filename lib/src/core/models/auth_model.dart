@@ -19,12 +19,14 @@ class AuthModel {
 
   factory AuthModel.fromMap(Map<String, dynamic> map) {
     return AuthModel(
-      // accessToken: map['accessToken'] ?? '',
-      accessToken: map['access_token'] ?? '',
+      // accessToken: map['accessToken'] ?? '',//!padrão
+      accessToken: map['access_token'] ?? '',//!alteração 1
+      // accessToken: (map['access_token'])as String, //!alteração 2 caso necessário
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory AuthModel.fromJson(String source) => AuthModel.fromMap(json.decode(source));
+  factory AuthModel.fromJson(String source) =>
+      AuthModel.fromMap(json.decode(source));
 }
