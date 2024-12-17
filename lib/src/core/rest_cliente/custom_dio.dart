@@ -20,4 +20,13 @@ class CustomDio extends DioForBrowser {
       ),
     );
   }
+
+  CustomDio auth() {
+    return this;
+  }
+
+  // quando fizer requisiçoes que não precise de autenticação (usando o o token JWT)
+  CustomDio unAuth() {
+    return this;
+  }
 }
