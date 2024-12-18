@@ -6,10 +6,8 @@ import 'modules/login/login_module.dart';
 class AppModule extends Module {
   @override
   void routes(r) {
-    //!GAMBIARRA
-    //!MAGAIVERISMO!!!!
-    //!! REARRANJO
-    //?Não está funcionando o comando para outro caminho fora o '/'
+    //?Não está funcionando o comando 'Modular.setInitialRoute('/');' para outro caminho fora o '/'
+    //? Defeito modular
     r.module('/', module: LoginModule());
     // r.child('/', child: (_) => HomePage());
   }
