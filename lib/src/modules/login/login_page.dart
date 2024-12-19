@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:mobx/mobx.dart';
 
+import '../../core/ui/helper/loader.dart';
+import '../../core/ui/helper/messages.dart';
 import '../../core/ui/helper/size_extension.dart';
 import '../../core/ui/styles/colors_app.dart';
 import '../../core/ui/styles/text_styles.dart';
+import 'login_controller.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -11,29 +16,47 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage> with Loader, Messages {
+  final _emailEC = TextEditingController();
+  final _passwordEC = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+  final controller = Modular.get<LoginController>();
+//criação de uma reactin para escutar
+  late final ReactionDisposer statusReactionDisposer;
 
-
-final _emailEC = TextEditingController();
-final _passwordEC = TextEditingController();
-final formKey = GlobalKey<FormState>();
-
-
-@override
+  @override
   void dispose() {
     _emailEC.dispose();
     _passwordEC.dispose();
     super.dispose();
   }
 
-
   @override
   void initState() {
     //criação de uma reactin para escutar
-    
+    statusReactionDisposer = reaction(
+      //quem vou escutar
+      (_) => controller.loginStatus,
+      (status) {
+        switch (status) {
+          case LoginStateStatus.initial:
+            break;
+          case LoginStateStatus.loading:
+            showLoader();
+
+          case LoginStateStatus.success:
+            hideLoader();
+            Modular.to.navigate('/homePage');
+            break;
+          case LoginStateStatus.error:
+            hideLoader();
+            showError(controller.errorMessage ?? 'Error');
+            break;
+        }
+      },
+    );
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +115,8 @@ final formKey = GlobalKey<FormState>();
                       const SizedBox(height: 20),
                       FittedBox(
                         fit: BoxFit.scaleDown,
-                        child: Text('login', style: context.textStyles.textTitle),
+                        child:
+                            Text('login', style: context.textStyles.textTitle),
                       ),
                       TextFormField(
                         decoration: InputDecoration(labelText: 'Email'),

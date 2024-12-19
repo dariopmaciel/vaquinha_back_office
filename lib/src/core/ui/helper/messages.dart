@@ -2,17 +2,7 @@ import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 
 mixin Messages<T extends StatefulWidget> on State<T> {
-  void _showSnackBar(AwesomeSnackbarContent content) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: content,
-        elevation: 0,
-        behavior: SnackBarBehavior.floating,
-        padding: EdgeInsets.only(top: 72),
-        backgroundColor: Colors.transparent,
-      ),
-    );
-  }
+
 
   void showError(String message) {
     _showSnackBar(
@@ -37,7 +27,7 @@ mixin Messages<T extends StatefulWidget> on State<T> {
   void showInfo(String message) {
     _showSnackBar(
       AwesomeSnackbarContent(
-        title: 'INFO',
+        title: 'ATENÇÃO',
         message: message,
         contentType: ContentType.help,
       ),
@@ -50,6 +40,19 @@ mixin Messages<T extends StatefulWidget> on State<T> {
         title: 'SUCESSO',
         message: message,
         contentType: ContentType.success,
+      ),
+    );
+  }
+
+
+    void _showSnackBar(AwesomeSnackbarContent content) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: content,
+        elevation: 0,
+        behavior: SnackBarBehavior.floating,
+        padding: EdgeInsets.only(top: 72),
+        backgroundColor: Colors.transparent,
       ),
     );
   }

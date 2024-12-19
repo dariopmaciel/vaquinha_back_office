@@ -1,7 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
-
 import 'modules/core/core_module.dart';
-// import 'modules/home/home_page.dart';
+import 'modules/home/home_page.dart';
 import 'modules/login/login_module.dart';
 
 class AppModule extends Module {
@@ -24,6 +23,6 @@ class AppModule extends Module {
     //?Não está funcionando o comando 'Modular.setInitialRoute('/');' para outro caminho fora o '/'
     //? Defeito modular
     r.module('/', module: LoginModule());
-    // r.child('/', child: (_) => HomePage());
+    r.child('/homePage', child: (_) => HomePage());
   }
 }

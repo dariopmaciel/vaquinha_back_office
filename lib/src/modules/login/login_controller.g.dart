@@ -27,6 +27,32 @@ mixin _$LoginController on LoginControllerBase, Store {
     });
   }
 
+  late final _$_errorMessageAtom =
+      Atom(name: 'LoginControllerBase._errorMessage', context: context);
+
+  String? get errorMessage {
+    _$_errorMessageAtom.reportRead();
+    return super._errorMessage;
+  }
+
+  @override
+  String? get _errorMessage => errorMessage;
+
+  @override
+  set _errorMessage(String? value) {
+    _$_errorMessageAtom.reportWrite(value, super._errorMessage, () {
+      super._errorMessage = value;
+    });
+  }
+
+  late final _$loginAsyncAction =
+      AsyncAction('LoginControllerBase.login', context: context);
+
+  @override
+  Future<void> login(String email, String password) {
+    return _$loginAsyncAction.run(() => super.login(email, password));
+  }
+
   @override
   String toString() {
     return '''

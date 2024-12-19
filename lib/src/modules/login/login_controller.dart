@@ -4,7 +4,7 @@ import '../../core/exceptions/unautorized_exception.dart';
 import '../../services/auth/login_service.dart';
 part 'login_controller.g.dart';
 
-//TODO MobX => Uma Action => Que altera um estado => Que causa uma reação
+//? MobX => Uma Action => Que altera um estado => Que causa uma reação
 //por isto ter um geter pois não faz sentido ser publico
 
 enum LoginStateStatus {
@@ -21,8 +21,9 @@ abstract class LoginControllerBase with Store {
 
   @readonly
   var _loginStatus = LoginStateStatus.initial;
+  
   @readonly
-  String? _errorMEssage;
+  String? _errorMessage;
 
   LoginControllerBase(this._loginService);
 
@@ -32,12 +33,12 @@ abstract class LoginControllerBase with Store {
       _loginStatus = LoginStateStatus.loading;
       await _loginService.execute(email, password);
       _loginStatus = LoginStateStatus.success;
-    } on unAutorizedException catch (e, s) {
-      _errorMEssage = 'Login ou senha inválidos';
+    } on unAutorizedException  {
+      _errorMessage = 'Login ou senha inválidos';
       _loginStatus = LoginStateStatus.error;
     } catch (e, s) {
       log('Erro ao realizar login', error: e, stackTrace: s);
-      _errorMEssage = 'Tente novamente mais tarde';
+      _errorMessage = 'Tente novamente mais tarde';
       _loginStatus = LoginStateStatus.error;
     }
   }

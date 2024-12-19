@@ -13,7 +13,7 @@ class LoginModule extends Module {
     // i.addLazySingleton<AuthRepository>(AuthRepositoryImpl.new);
     i.addLazySingleton<AuthRepository>((i) => AuthRepositoryImpl(dio: i()));
     i.addLazySingleton<LoginService>((i) => LoginServiceImpl(authRepository: i(), storage: i()));
-    i.addLazySingleton(() => LoginController(i()));//recebe o service
+    i.addLazySingleton<LoginController>(() => LoginController(i()));//recebe o service
   }
 
   @override
