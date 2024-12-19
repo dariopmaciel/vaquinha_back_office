@@ -1,3 +1,3 @@
 abstract interface class LoginService {
-  Future<void> login(String email, String password);
+  Future<void> execute(String email, String password);
 }

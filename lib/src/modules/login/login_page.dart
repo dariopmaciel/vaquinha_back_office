@@ -4,8 +4,36 @@ import '../../core/ui/helper/size_extension.dart';
 import '../../core/ui/styles/colors_app.dart';
 import '../../core/ui/styles/text_styles.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+
+
+final _emailEC = TextEditingController();
+final _passwordEC = TextEditingController();
+final formKey = GlobalKey<FormState>();
+
+
+@override
+  void dispose() {
+    _emailEC.dispose();
+    _passwordEC.dispose();
+    super.dispose();
+  }
+
+
+  @override
+  void initState() {
+    //criação de uma reactin para escutar
+    
+    super.initState();
+  }
+
 
   @override
   Widget build(BuildContext context) {

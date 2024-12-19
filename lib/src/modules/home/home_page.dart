@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 // import '../../core/env/env.dart';
 import '../../core/ui/helper/loader.dart';
 import '../../core/ui/helper/messages.dart';
-import '../../core/ui/helper/size_extension.dart';
+// import '../../core/ui/helper/size_extension.dart';
 import '../../core/ui/styles/colors_app.dart';
-import '../../core/ui/styles/text_styles.dart';
+// import '../../core/ui/styles/text_styles.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -43,6 +43,7 @@ class _HomePageState extends State<HomePage> with Loader, Messages {
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   child: TextFormField(
                     decoration: InputDecoration(label: Text("Login")),
+                    
                     validator: (String) => 'Erro',
                   ),
                 ),

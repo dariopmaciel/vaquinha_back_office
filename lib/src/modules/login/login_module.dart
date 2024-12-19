@@ -4,6 +4,7 @@ import '../../repositories/auth/auth_repository.dart';
 import '../../repositories/auth/auth_repository_impl.dart';
 import '../../services/auth/login_service.dart';
 import '../../services/auth/login_service_impl.dart';
+import 'login_controller.dart';
 import 'login_page.dart';
 
 class LoginModule extends Module {
@@ -11,12 +12,8 @@ class LoginModule extends Module {
   void binds(i) {
     // i.addLazySingleton<AuthRepository>(AuthRepositoryImpl.new);
     i.addLazySingleton<AuthRepository>((i) => AuthRepositoryImpl(dio: i()));
-    i.addLazySingleton<LoginService>(
-      (i) => LoginServiceImpl(
-        authRepository: i(),
-        storage: i(),
-      ),
-    );
+    i.addLazySingleton<LoginService>((i) => LoginServiceImpl(authRepository: i(), storage: i()));
+    i.addLazySingleton(() => LoginController(i()));//recebe o service
   }
 
   @override
