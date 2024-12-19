@@ -1,5 +1,5 @@
-class UnautorizedException implements Exception {
+class unAutorizedException implements Exception {
   final String message;
 
-  UnautorizedException({required this.message});
+  unAutorizedException({required this.message});
 }
