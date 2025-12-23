@@ -30,34 +30,32 @@ class _HomePageState extends State<HomePage> with Loader, Messages {
       // showWarning("Algum aviso");
       // }),
       body: Container(
-        child: Container(
-          color: context.colors.secondary,
-          // width: context.percentWidget(.5),
-          // height: context.percentWidget(.5),
-          // child: Text("Texto Extra BOLD", style: context.textStyles.textTitle),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Form(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  child: TextFormField(
-                    decoration: InputDecoration(label: Text("Login")),
-                    
-                    validator: (String) => 'Erro',
-                  ),
+        color: context.colors.secondary,
+        // width: context.percentWidget(.5),
+        // height: context.percentWidget(.5),
+        // child: Text("Texto Extra BOLD", style: context.textStyles.textTitle),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Form(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                child: TextFormField(
+                  decoration: InputDecoration(label: Text('Login')),
+                  
+                  validator: (String? value) => 'Erro',
                 ),
               ),
-              SizedBox(
-                width: 200,
-                height: 50,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text("Botão"),
-                ),
+            ),
+            SizedBox(
+              width: 200,
+              height: 50,
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text('Botão'),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

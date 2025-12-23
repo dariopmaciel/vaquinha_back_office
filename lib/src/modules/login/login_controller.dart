@@ -21,7 +21,7 @@ abstract class LoginControllerBase with Store {
 
   @readonly
   var _loginStatus = LoginStateStatus.initial;
-  
+
   @readonly
   String? _errorMessage;
 
@@ -33,7 +33,7 @@ abstract class LoginControllerBase with Store {
       _loginStatus = LoginStateStatus.loading;
       await _loginService.execute(email, password);
       _loginStatus = LoginStateStatus.success;
-    } on unAutorizedException  {
+    } on UnauthorizedException {
       _errorMessage = 'Login ou senha inválidos';
       _loginStatus = LoginStateStatus.error;
     } catch (e, s) {

@@ -29,7 +29,7 @@ class AuthRepositoryImpl implements AuthRepository {
     } on DioException catch (e, s) {
       if (e.response?.statusCode == 403) {
         log('Login ou Senha inválidos', error: e, stackTrace: s);
-        throw unAutorizedException(message: 'Login ou Senha inválidos');
+        throw UnauthorizedException('Login ou Senha inválidos');
       }
       log('Erro ao realizar login', error: e, stackTrace: s);
       throw RepositoryException(message: 'Erro ao realizar login');

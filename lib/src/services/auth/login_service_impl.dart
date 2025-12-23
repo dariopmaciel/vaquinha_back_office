@@ -1,6 +1,3 @@
-import 'dart:developer';
-import '../../core/exceptions/repository_exception.dart';
-import '../../core/exceptions/unautorized_exception.dart';
 import '../../core/shared_global/constants.dart';
 import '../../core/storage/storage.dart';
 import '../../repositories/auth/auth_repository.dart';

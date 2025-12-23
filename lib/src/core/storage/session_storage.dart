@@ -1,6 +1,7 @@
 import 'storage.dart';
 import 'dart:html';
 
+
 //ao trab com sessão é necessário usar as variaveis que vem do html
 //?tambem pode se trabalhar com LOCAL storage
 
